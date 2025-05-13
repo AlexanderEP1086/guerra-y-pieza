@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guerra y pieza</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Botón para abrir el menú de piezas -->
+  <button id="abrir-menu">Elegir piezas</button>
+
+  <!-- Modal de selección de piezas -->
+  <div id="menu-modal" class="modal oculto">
+    <div id="menu-contenido">
+      <button id="cerrar-menu">Cerrar menú</button>
+      <h3>Selecciona una pieza</h3>
+      <div class="contenedor-piezas">
+        <img src="assets/Arwulf.png" alt="Arwulf" class="pieza-menu" />
+        <img src="assets/Ishaco.png" alt="Ishaco" class="pieza-menu" />
+        <img src="assets/Aelion.png" alt="Aelion" class="pieza-menu" />
+        <img src="assets/Astrid.png" alt="Astrid" class="pieza-menu" />
+        <img src="assets/Caidadelcastillo.png" alt="Caidadelcastillo" class="pieza-menu" />
+        <img src="assets/Caronus.png" alt="Caronus" class="pieza-menu" />
+        <img src="assets/Destellonocturno.png" alt="Destellonocturno" class="pieza-menu" />
+        <img src="assets/Emrys.png" alt="Emrys" class="pieza-menu" />
+        <img src="assets/Huargoliberado.png" alt="Huargoliberado" class="pieza-menu" />
+        <img src="assets/Karu.png" alt="Karu" class="pieza-menu" />
+        <img src="assets/Krowain.png" alt="Krowain" class="pieza-menu" />
+        <img src="assets/Mandibulainfernal.png" alt="Mandibulainfernal" class="pieza-menu" />
+        <img src="assets/Pandaria.png" alt="Pandaria" class="pieza-menu" />
+        <img src="assets/Quiron.png" alt="Quiron" class="pieza-menu" />
+        <img src="assets/Sombradeltigre.png" alt="Sombradeltigre" class="pieza-menu" />
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Layout principal: tablero y zonas de captura -->
+  <div class="layout-juego">
+    <!-- Zona capturas Jugador 1 -->
+    <div class="zona-capturas-lateral">
+      <button id="abrir-capturas-j1">Capturas J1</button>
+      <div id="panel-j1" class="panel-capturas oculto">
+        <h4>Jugador 1</h4>
+        <div class="contenedor-capturas" id="capturas-j1"></div>
+        <button class="cerrar-capturas">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- Tablero de 8x8 -->
+    <div id="tablero"></div>
+
+    <!-- Zona capturas Jugador 2 -->
+    <div class="zona-capturas-lateral">
+      <button id="abrir-capturas-j2">Capturas J2</button>
+      <div id="panel-j2" class="panel-capturas oculto">
+        <h4>Jugador 2</h4>
+        <div class="contenedor-capturas" id="capturas-j2"></div>
+        <button class="cerrar-capturas">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+<ul id="context-menu" class="oculto">
+  <li data-action="rotar-sh">Rotar 90° SH</li>
+  <li data-action="rotar-sa">Rotar 90° SA</li>
+  <li data-action="eliminar">Eliminar</li>
+  <li class="submenu">
+  Cambiar color
+  <ul class="submenu-opciones">
+    <li data-color="negro">Negro</li>
+    <li data-color="rojo">Rojo</li>
+    <li data-color="azul">Azul</li>
+    <li data-color="ninguno">Sin borde</li>
+  </ul>
+</li>
+</ul>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
