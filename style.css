@@ -218,3 +218,11 @@ button:hover {
   pointer-events: none;
   z-index: 1000;
 }
+
+.tablero-rotado {
+  transform: rotate(180deg);
+}
+
+.tablero-rotado .pieza {
+  transform: rotate(180deg);
+}

@@ -121,6 +121,15 @@ document.addEventListener("DOMContentLoaded", () => {
     contenedor.addEventListener("dragover", permitirSoltar);
     contenedor.addEventListener("drop", soltarPieza);
   });
+
+    // 2.5 Botón de cambiar perspectiva (voltear tablero)
+  const btnPerspectiva = document.getElementById("cambiar-perspectiva");
+  btnPerspectiva.addEventListener("click", () => {
+    const tablero = document.getElementById("tablero");
+    tablero.classList.toggle("tablero-rotado");
+  });
+
+
 });
 
 // Permitir que un elemento reciba drop
@@ -238,16 +247,34 @@ document.addEventListener("mouseup", e => {
 
 // Manejar acciones del menú (varias o única)
 menu.addEventListener("click", e => {
-  e.stopPropagation(); const li = e.target.closest("li"); if (!li) return;
+  e.stopPropagation();
+  const li = e.target.closest("li");
+  if (!li) return;
   const action = li.dataset.action;
   const targets = piezasSeleccionadas.length ? piezasSeleccionadas : (piezaSeleccionada ? [piezaSeleccionada] : []);
   targets.forEach(p => {
     switch(action) {
-      case "rotar-sh": let r1 = (parseInt(p.dataset.rotation)||0)+90; p.dataset.rotation = r1%360; p.style.transform=`rotate(${r1}deg)`; break;
-      case "rotar-sa": let r2 = (parseInt(p.dataset.rotation)||0)-90; p.dataset.rotation=(r2+360)%360; p.style.transform=`rotate(${r2}deg)`; break;
-      case "eliminar": p.remove(); break;
+      case "rotar-sh":
+        let r1 = (parseInt(p.dataset.rotation) || 0) + 90;
+        p.dataset.rotation = r1 % 360;
+        p.style.transform = `rotate(${r1}deg)`;
+        break;
+      case "rotar-sa":
+        let r2 = (parseInt(p.dataset.rotation) || 0) - 90;
+        p.dataset.rotation = (r2 + 360) % 360;
+        p.style.transform = `rotate(${r2}deg)`;
+        break;
+      case "rotar-180":
+        let r3 = (parseInt(p.dataset.rotation) || 0) + 180;
+        p.dataset.rotation = r3 % 360;
+        p.style.transform = `rotate(${r3}deg)`;
+        break;
+      case "eliminar":
+        p.remove();
+        break;
     }
-  }); cerrarMenuContextual();
+  });
+  cerrarMenuContextual();
 });
 
 // Submenu colores
